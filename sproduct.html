@@ -81,7 +81,7 @@
 				<h2>$500</h2>
 				<select id="size-dropdown">
 					<option value="None">Select Size</option>
-					<option value="Mini">Mini</option>
+					<option id="mini1" value="Mini">Mini</option>
 					<option value="Pro">Pro</option>
 					<option value="Pro-max">Pro Max</option>
 				</select>
@@ -238,6 +238,24 @@
 			smallimg[3].onclick = function () {
 				MainImg.src = smallimg[3].src;
 			};
+
+			const PlainImg = document.getElementById("plain");
+			const smallImag = document.getElementById("small");
+			const bigImag = document.getElementById("big");
+			const biggerImag = document.getElementById("bigger");
+			const sizeDropDown = document.getElementById("size-dropdown");
+
+			sizeDropDown.addEventListener("change", () => {
+				if (sizeDropDown.value === "Mini") {
+					MainImg.src = smallImag.src; // Change Main Image to Mini
+				} else if (sizeDropDown.value === "Pro") {
+					MainImg.src = bigImag.src; // Change Main Image to Pro
+				} else if (sizeDropDown.value === "Pro-max") {
+					MainImg.src = biggerImag.src; // Change Main Image to Pro Max
+				} else if (sizeDropDown.value === "None") {
+					MainImg.src = PlainImg.src; // Change Main Image to Plain
+				}
+			});
 		</script>
 
 		<script>
